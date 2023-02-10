@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
 	inet_pton(AF_INET, argv[1], &(serveur.sin_addr));
 	
 	inet_ntop(AF_INET, &(serveur.sin_addr), req, INET_ADDRSTRLEN); //debugging
-	printf("\033[0;37mTrying to connect to %s on port %d with username %s and password specified.\033[0m\n", req, serveur.sin_port, argv[3]);
+	printf("\033[0;37mTrying to connect to %s on port %d with username %s and password specified.\033[0m\n", req, atoi(argv[2]), argv[3]);
 	if (connect(s, (struct sockaddr *)&serveur, sizeof(serveur))<0) {
 		printf("Could not connect to server\n");
 		return 0;
